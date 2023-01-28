@@ -1,11 +1,11 @@
 import Image from "next/image";
 
-const SearchBar = ({ label }) => {
+const SearchBarSm = ({ label }) => {
   return (
     <div className="flex">
       <div className="relative">
         <input
-          className="bg-inherit px-12 py-2 rounded-full w-[22rem]  ring-2  caret-cyan-600"
+          className="bg-inherit px-12 py-1 rounded-full w-[20rem]  ring-2  caret-cyan-600 text-sm"
           type="text"
           placeholder={label}
         />
@@ -18,4 +18,4 @@ const SearchBar = ({ label }) => {
   );
 };
 
-export default SearchBar;
+export default SearchBarSm;

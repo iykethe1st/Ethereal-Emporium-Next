@@ -2,19 +2,21 @@ import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/navbar";
+import SearchBarSm from "@/components/common/searchBarSm";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      window.innerWidth < 600
+      window.innerWidth < 700
         ? setIsSmallScreen(true)
         : setIsSmallScreen(false);
     };
 
     handleResize();
     window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener("resize", handleResize);
     };
@@ -30,6 +32,12 @@ export default function Home() {
       </Head>
       <main className="sm:block text-gray-300">
         <Navbar setScreen={isSmallScreen} />
+        {isSmallScreen && (
+          <SearchBarSm
+            label="Seach items, collections, and accounts"
+            setScreen={isSmallScreen}
+          />
+        )}
       </main>
     </>
   );
