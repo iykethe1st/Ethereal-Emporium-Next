@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@200;300;400;700&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -10,4 +11,5 @@
     rgba(24, 75, 70, 1) 60%,
     rgba(94, 140, 116, 1) 100%
   );
+  font-family: "Roboto Mono", monospace;
 }

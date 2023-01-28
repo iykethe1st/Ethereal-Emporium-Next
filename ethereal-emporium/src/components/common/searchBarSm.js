@@ -2,10 +2,10 @@ import Image from "next/image";
 
 const SearchBarSm = ({ label }) => {
   return (
-    <div className="flex">
+    <div className="flex mx-auto">
       <div className="relative">
         <input
-          className="bg-inherit px-12 py-1 rounded-full w-[20rem]  ring-2  caret-cyan-600 text-sm"
+          className="bg-inherit px-10 py-1 rounded-full w-[18rem]  ring-2  caret-cyan-600 text-[0.8rem]"
           type="text"
           placeholder={label}
         />

@@ -4,9 +4,10 @@ import Image from "next/image";
 import SearchBar from "./common/searchbar";
 import { TiThMenu } from "react-icons/ti";
 import { BiWalletAlt } from "react-icons/bi";
-import Button from "./common/button";
+import ButtonDark from "./common/buttonDark";
+import ButtonLight from "./common/buttonLight";
 
-const Navbar = ({ setScreen }) => {
+const Navbar = ({}) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -40,11 +41,6 @@ const Navbar = ({ setScreen }) => {
       item: "Resources",
       link: "/resources",
     },
-    {
-      id: 3,
-      item: "Account",
-      link: "/account",
-    },
   ];
   const [open, setOpen] = useState(false);
 
@@ -54,7 +50,7 @@ const Navbar = ({ setScreen }) => {
 
       {!isSmallScreen && (
         <div className="">
-          <SearchBar label="Seach items, collections, accounts" />
+          <SearchBar label="Search items, collections, accounts" />
         </div>
       )}
 
@@ -72,22 +68,27 @@ const Navbar = ({ setScreen }) => {
           open ? "block w-full ease-in delay-150" : "hidden"
         } lg:flex lg:items-center lg:w-auto  lg:justify-between`}
       >
-        <ul className="lg:flex lg:gap-2 items-center text-md lg:text-base">
+        <ul className="lg:flex lg:gap-2 items-center text-sm">
           {navItems.map((nav) => (
             <li
               key={nav.id}
               className="p-2 lg: md:px-2 block text-start border-b-[0.5px] lg:border-0 border-neutral-800"
             >
               <Link
-                className="hover:text-slate-800 active:text-black"
+                className="hover:text-slate-400 active:text-slate-500"
                 href={nav.link}
               >
                 {nav.item}
               </Link>
             </li>
           ))}
+          <li className="py-1 lg:py-0">
+            <ButtonLight label="Account" />
+          </li>
+          <li className="pt-2 lg:pt-0">
+            <ButtonDark icon={<BiWalletAlt />} label="Connect Wallet" />
+          </li>
         </ul>
-        <Button icon={<BiWalletAlt />} label="Connect Wallet" />
       </section>
     </nav>
   );

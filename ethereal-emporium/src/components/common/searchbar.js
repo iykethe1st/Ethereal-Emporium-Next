@@ -5,7 +5,7 @@ const SearchBar = ({ label }) => {
     <div className="flex">
       <div className="relative">
         <input
-          className="bg-inherit px-12 py-2 rounded-full w-[22rem]  ring-2  caret-cyan-600"
+          className="bg-inherit px-12 py-2 rounded-full w-[22rem]  ring-2  caret-cyan-600 text-[0.76rem]"
           type="text"
           placeholder={label}
         />

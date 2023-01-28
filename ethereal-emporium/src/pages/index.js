@@ -3,13 +3,14 @@ import Head from "next/head";
 import Image from "next/image";
 import Navbar from "../components/navbar";
 import SearchBarSm from "@/components/common/searchBarSm";
+import Hero from "@/components/hero";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      window.innerWidth < 700
+      window.innerWidth < 600
         ? setIsSmallScreen(true)
         : setIsSmallScreen(false);
     };
@@ -34,12 +35,10 @@ export default function Home() {
         <Navbar setScreen={isSmallScreen} />
         {isSmallScreen && (
           <div className="mx-auto py-2">
-            <SearchBarSm
-              label="Seach items, collections, accounts"
-              setScreen={isSmallScreen}
-            />
+            <SearchBarSm label="Search items, collections, accounts" />
           </div>
         )}
+        <Hero />
       </main>
     </>
   );
