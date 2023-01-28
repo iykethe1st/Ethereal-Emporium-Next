@@ -3,11 +3,11 @@
 @tailwind utilities;
 
 :root {
-  background: rgb(20, 3, 29);
+  background: rgb(13, 10, 34);
   background: linear-gradient(
-    90deg,
-    rgba(20, 3, 29, 1) 0%,
-    rgba(24, 75, 70, 1) 50%,
-    rgba(2, 64, 28, 1) 100%
+    110deg,
+    rgba(13, 10, 34, 1) 5%,
+    rgba(24, 75, 70, 1) 60%,
+    rgba(94, 140, 116, 1) 100%
   );
 }
