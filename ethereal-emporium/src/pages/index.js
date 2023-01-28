@@ -4,6 +4,7 @@ import Image from "next/image";
 import Navbar from "../components/navbar";
 import SearchBarSm from "@/components/common/searchBarSm";
 import Hero from "@/components/hero";
+import HiddenJems from "@/components/hiddenGems";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -39,6 +40,7 @@ export default function Home() {
           </div>
         )}
         <Hero />
+        <HiddenJems />
       </main>
     </>
   );

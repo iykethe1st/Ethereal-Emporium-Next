@@ -3,12 +3,13 @@ import Image from "next/image";
 import ButtonDarkLg from "./common/buttonDarkLg";
 import ButtonLightLg from "./common/buttonLightLg";
 import Link from "next/link";
+import Title from "./common/title";
 
 const Hero = () => {
   return (
     <section
       style={{ backgroundImage: `url(${HeroIcon})` }}
-      className="bg-cover hero bg-center  h-[50rem] relative overflow-hidden"
+      className="bg-cover hero bg-center h-[35rem] lg:h-[45rem] relative overflow-hidden"
     >
       <div className="absolute -top-[12rem] -right-[8rem] z-0">
         <Image width="850" height="850" src="/hero-icon.png" alt="hero" />
@@ -18,10 +19,10 @@ const Hero = () => {
         <span className="text-slate-400 text-sm">
           Exclusive NFT for Digital and Real-world Assets
         </span>
-        <h1 className="text-slate-200 font-bold text-3xl md:text-4xl max-w-[55rem]">
-          The world's best non-fungible token (NFT) marketplace for both digital
-          and physical assets.
-        </h1>
+        <Title
+          label="The world's best non-fungible token (NFT) marketplace for both digital and
+      physical assets."
+        />
         <div className="flex gap-4 md:gap-12">
           <ButtonLightLg label="Explore" />
           <ButtonDarkLg label="Create" />
