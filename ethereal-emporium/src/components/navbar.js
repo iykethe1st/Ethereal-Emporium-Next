@@ -3,6 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import SearchBar from "./common/searchbar";
 import { TiThMenu } from "react-icons/ti";
+import { BiWalletAlt } from "react-icons/bi";
+import Button from "./common/button";
 
 const Navbar = ({ setScreen }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -25,28 +27,23 @@ const Navbar = ({ setScreen }) => {
   const navItems = [
     {
       id: 0,
-      item: "About Us",
-      link: "/about-us",
+      item: "Explore",
+      link: "/explore",
     },
     {
       id: 1,
-      item: "Home",
-      link: "/",
+      item: "Activity",
+      link: "/activity",
     },
     {
       id: 2,
-      item: "Pricing",
-      link: "/pricing",
+      item: "Resources",
+      link: "/resources",
     },
     {
       id: 3,
-      item: "Blog",
-      link: "/blog/home",
-    },
-    {
-      id: 4,
-      item: "Contact",
-      link: "/contact-us",
+      item: "Account",
+      link: "/account",
     },
   ];
   const [open, setOpen] = useState(false);
@@ -89,13 +86,8 @@ const Navbar = ({ setScreen }) => {
               </Link>
             </li>
           ))}
-          <Link href="/login">
-            {" "}
-            <button className="ml-3 my-3 block text-white px-4 active:bg-[#FF8F50] hover:bg-[#FF7A30] bg-[#FF6610] ring-1 ring-[#FF7A30] shadow-sm shadow-slate-600 rounded">
-              Sign in
-            </button>
-          </Link>
         </ul>
+        <Button icon={<BiWalletAlt />} label="Connect Wallet" />
       </section>
     </nav>
   );

@@ -30,13 +30,15 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="sm:block text-gray-300">
+      <main className="sm:block text-gray-300 flex flex-col">
         <Navbar setScreen={isSmallScreen} />
         {isSmallScreen && (
-          <SearchBarSm
-            label="Seach items, collections, and accounts"
-            setScreen={isSmallScreen}
-          />
+          <div className="mx-auto py-2">
+            <SearchBarSm
+              label="Seach items, collections, accounts"
+              setScreen={isSmallScreen}
+            />
+          </div>
         )}
       </main>
     </>
