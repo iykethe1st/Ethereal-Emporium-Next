@@ -59,7 +59,7 @@ const SignUp = () => {
   return (
     <section className="h-screen flex flex-col justify-center items-center text-slate-300 ">
       <div className="w-[18rem] md:w-[25rem] flex flex-col justify-center items-center p-8 ring-slate-300 ring-2 shadow-sm shadow-black  rounded-xl gap-4 bg-gradient-to-r to-zinc-900 from-black">
-        <h1 className="font-bold text-3xl">Sign Up</h1>
+        <h1 className="font-bold text-3xl">Sign In</h1>
         <span className="text-sm">Sign up and mint NFTs using Testnet</span>
 
         <form
@@ -80,15 +80,20 @@ const SignUp = () => {
             onChange={handleChange}
             errors={errors.password}
           />
+          {errors && (
+            <div className="ml-2 md:w-[17rem] w-11/12 text-start text-[0.7rem] md:text-[0.8rem] text-red-600">
+              {errors.email}
+            </div>
+          )}
 
           <ButtonLightLg label="Sign Up" />
           <span className="text-[0.8rem]">
-            Already have an account?{" "}
+            Don't have an account?{" "}
             <Link
               className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-500"
               href="/login"
             >
-              Sign in here
+              Sign up here
             </Link>
           </span>
         </form>
