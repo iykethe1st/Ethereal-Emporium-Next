@@ -45,7 +45,7 @@ const Navbar = ({}) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="absolute z-20 bg-[#8F8E95] bg-opacity-10 flex-wrap w-full flex items-center justify-between py-4 transform transition duration-500 ease-in-out">
+    <nav className="absolute z-20 bg-[#8F8E95] bg-opacity-10 flex-wrap w-full flex items-center tracking-tight justify-between py-4 transform transition duration-500 ease-in-out">
       <Image
         className="ml-4 md:ml-8 lg:ml-20"
         src="/logo.png"

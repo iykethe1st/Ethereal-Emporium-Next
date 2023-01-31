@@ -1,41 +1,8 @@
-import { useState } from "react";
-import useWindowWidth from "./common/windowWidth";
 import Title from "./common/title";
-import Carousel from "./carousel";
+import { Carousel } from "./carousel";
 
 const HiddenJems = () => {
-  const sample = new Object({
-    id: 0,
-    name: "ZombieClub Token",
-    token: "/Ellipse1.png",
-    img: "/Rectangle1.png",
-    creator: "ZombieLab",
-    description: `Zombie Lab is a collection of 10,000 animated NFTs. Each NFT is
-          unique and resides on the Ethereum blockchain. Your Zombie Lab
-          Club NFT will double as your club membership.`,
-  });
-
   const nft = [
-    {
-      id: 0,
-      name: "ZombieClub Token",
-      token: "/Ellipse1.png",
-      img: "/Rectangle1.png",
-      creator: "ZombieLab",
-      description: `Zombie Lab is a collection of 10,000 animated NFTs. Each NFT is
-            unique and resides on the Ethereum blockchain. Your Zombie Lab
-            Club NFT will double as your club membership.`,
-    },
-    {
-      id: 0,
-      name: "ZombieClub Token",
-      token: "/Ellipse1.png",
-      img: "/Rectangle1.png",
-      creator: "ZombieLab",
-      description: `Zombie Lab is a collection of 10,000 animated NFTs. Each NFT is
-            unique and resides on the Ethereum blockchain. Your Zombie Lab
-            Club NFT will double as your club membership.`,
-    },
     {
       id: 0,
       name: "ZombieClub Token",
@@ -65,6 +32,16 @@ const HiddenJems = () => {
       description: `Treeverse is an open-world, fantasy MMORPG with a MOBA-style 
       combat system. Slay beasts, forge mighty weapons, lure the biggest fish, 
       form guilds, defeat dungeons`,
+    },
+    {
+      id: 1,
+      name: "Meta Bounty Hunters",
+      token: "/Ellipse2.png",
+      img: "/Rectangle2.png",
+      creator: "B30898",
+      description: `Meta Bounty Hunters is a first of its kind  community and collective 
+      of elite members who share a community-first mindset and are focused on 
+      giving back to its NFT holders through the Reflection Rewards.`,
     },
   ];
 

@@ -5,6 +5,9 @@ import Navbar from "@/components/navbar";
 import SearchBarSm from "@/components/common/searchBarSm";
 import Hero from "@/components/hero";
 import HiddenJems from "@/components/hiddenGems";
+import TopCollections from "@/components/topCollections";
+import Trending from "@/components/trending";
+import Info from "@/components/info";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
@@ -39,9 +42,11 @@ export default function Home() {
             <SearchBarSm label="Search items, collections, accounts" />
           </div>
         )}
-
         <Hero />
+        <Trending />
+        <TopCollections />
         <HiddenJems />
+        <Info />
       </main>
     </>
   );
