@@ -11,7 +11,7 @@ const Hero = () => {
       style={{ backgroundImage: `url(${HeroIcon})` }}
       className="bg-cover hero bg-center h-[35rem] lg:h-[45rem] relative overflow-hidden px-4 md:px-24"
     >
-      <div className="absolute -top-[12rem] -right-[8rem] z-0">
+      <div className="absolute -top-[12rem] -right-[8rem]">
         <Image width="850" height="850" src="/hero-icon.png" alt="hero" />
       </div>
 
@@ -19,7 +19,7 @@ const Hero = () => {
         <span className="text-slate-400 text-sm">
           Exclusive NFT for Digital and Real-world Assets
         </span>
-        <Title label="This is my demo website, you can create an account, login, or connect your testnet wallet and mint an NFT." />
+        <Title label="This is my demo website, you can only create an account, login, or connect your testnet wallet and mint an NFT." />
         <div className="flex gap-4 md:gap-12">
           <ButtonLightLg label="Explore" />
           <ButtonDarkLg label="Create" />

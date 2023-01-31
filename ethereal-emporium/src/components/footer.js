@@ -2,7 +2,7 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <section className="bg-black bg-opacity-50">
+    <section className="bg-black bg-opacity-50 text-white">
       <section className="grid grid-cols-1  items-end lg:justify-between justify-items-center lg:flex py-16 px-4 md:px-24 gap-8">
         <div className="flex flex-col gap-4 max-w-[22rem]">
           <Image src="/Group-20.png" height="50" width="50" alt="thefund" />
@@ -40,7 +40,7 @@ const Footer = () => {
           </ul>
         </div>
         <div className="flex flex-col gap-4 md:mt-[2.5rem]">
-          <h1>Follow us on</h1>
+          <h1>Follow me on:</h1>
           <div className="grid grid-cols-3 gap-6 ">
             <Image src="/Group-26.png" height="50" width="50" alt="thefund" />
             <Image src="/Group-27.png" height="50" width="50" alt="thefund" />

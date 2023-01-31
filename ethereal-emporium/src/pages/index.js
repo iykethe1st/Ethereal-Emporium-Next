@@ -37,7 +37,6 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className="relative sm:block text-gray-300 flex flex-col">
-        <Navbar setScreen={isSmallScreen} />
         {isSmallScreen && (
           <div className="absolute flex flex-col items-center z-10 w-full h-full py-2 top-[4rem]">
             <SearchBarSm label="Search items, collections, accounts" />
@@ -49,7 +48,6 @@ export default function Home() {
         <HiddenJems />
         <Info />
         <Media />
-        <Footer />
       </main>
     </>
   );
