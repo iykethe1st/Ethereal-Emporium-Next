@@ -45,7 +45,7 @@ const Navbar = ({}) => {
   const [open, setOpen] = useState(false);
 
   return (
-    <nav className="absolute z-20 bg-[#8F8E95] bg-opacity-10 flex-wrap w-full flex items-center tracking-tight justify-between py-4 transform transition duration-500 ease-in-out">
+    <nav className="absolute z-20 bg-black bg-opacity-30 flex-wrap w-full flex items-center tracking-tight justify-between py-4 transform transition duration-500 ease-in-out">
       <Image
         className="ml-4 md:ml-8 lg:ml-20"
         src="/logo.png"
@@ -72,7 +72,7 @@ const Navbar = ({}) => {
       <section
         className={`${
           open ? "block w-full" : "hidden"
-        } lg:flex lg:items-center lg:w-auto  lg:justify-between backdrop-blur-sm px-4 md:px-8 lg:px-20`}
+        } lg:flex lg:items-center lg:w-auto lg:justify-between backdrop-blur-sm px-4 md:px-8 lg:px-20`}
       >
         <ul className="lg:flex lg:gap-2 items-center text-sm w-full">
           {navItems.map((nav) => (

@@ -70,14 +70,16 @@ const TopCollections = () => {
   ];
 
   return (
-    <section className="flex flex-col gap-10 py-16">
+    <section className="flex flex-col gap-4 my-8 ">
       <div className="flex justify-between items-center px-4 md:px-24">
         <Title label="Top Collections" />
-        <span className="bg-clip-text bg-gradient-to-r text-transparent from-blue-700 to-cyan-900 hover:from-blue-800 hover:to-slate-800 active:from-red-900 active:to-slate-900 cursor-pointer">
+        <span className="bg-clip-text bg-gradient-to-r text-transparent from-blue-400 to-cyan-400 hover:from-blue-500 hover:to-slate-500 active:from-red-600 active:to-slate-600 cursor-pointer">
           View all
         </span>
       </div>
-      <CarouselSm nftItem={nft} />
+      <div className="w-full bg-black bg-opacity-20 py-8">
+        <CarouselSm nftItem={nft} />
+      </div>
     </section>
   );
 };

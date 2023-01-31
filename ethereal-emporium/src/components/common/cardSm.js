@@ -3,7 +3,7 @@ import Image from "next/image";
 const CardSm = ({ item }) => {
   return (
     <div>
-      <div className="flex relative pb-4 overflow-hidden">
+      <div className="flex relative overflow-hidden">
         <div
           key={item.id}
           className="rounded-3xl bg-gradient-to-r p-0.5 from-green-400 to-blue-500 overflow-hidden"

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
-import Image from "next/image";
+import Footer from "@/components/footer";
 import Navbar from "@/components/navbar";
 import SearchBarSm from "@/components/common/searchBarSm";
 import Hero from "@/components/hero";
@@ -8,13 +8,14 @@ import HiddenJems from "@/components/hiddenGems";
 import TopCollections from "@/components/topCollections";
 import Trending from "@/components/trending";
 import Info from "@/components/info";
+import Media from "@/components/media";
 
 export default function Home() {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      window.innerWidth < 600
+      window.innerWidth < 675
         ? setIsSmallScreen(true)
         : setIsSmallScreen(false);
     };
@@ -38,7 +39,7 @@ export default function Home() {
       <main className="relative sm:block text-gray-300 flex flex-col">
         <Navbar setScreen={isSmallScreen} />
         {isSmallScreen && (
-          <div className="absolute flex flex-col items-center z-20 w-full h-full py-2 top-[0.7rem]">
+          <div className="absolute flex flex-col items-center z-10 w-full h-full py-2 top-[4rem]">
             <SearchBarSm label="Search items, collections, accounts" />
           </div>
         )}
@@ -47,6 +48,8 @@ export default function Home() {
         <TopCollections />
         <HiddenJems />
         <Info />
+        <Media />
+        <Footer />
       </main>
     </>
   );

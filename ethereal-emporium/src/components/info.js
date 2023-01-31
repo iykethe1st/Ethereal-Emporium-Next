@@ -1,6 +1,8 @@
+import { useState } from "react";
 import Title from "./common/title";
 
 const Info = () => {
+  const [playing, setPlaying] = useState(false);
   const info = [
     {
       id: 0,
@@ -32,7 +34,7 @@ const Info = () => {
     },
   ];
   return (
-    <section className="flex flex-col gap-10 py-16 px-4 md:px-24 bg-gradient-to-r from-teal-900 to-sky-900">
+    <section className="flex flex-col gap-10 py-20 my-8 px-4 md:px-24 bg-black bg-opacity-40">
       <div className="flex justify-between items-center">
         <Title label="Create and sell your NFTs" />
       </div>
