@@ -19,10 +19,7 @@ const Hero = () => {
         <span className="text-slate-400 text-sm">
           Exclusive NFT for Digital and Real-world Assets
         </span>
-        <Title
-          label="The world's best non-fungible token (NFT) marketplace for both digital and
-      physical assets."
-        />
+        <Title label="This is my demo website, you can create an account, login, or connect your testnet wallet and mint an NFT." />
         <div className="flex gap-4 md:gap-12">
           <ButtonLightLg label="Explore" />
           <ButtonDarkLg label="Create" />
