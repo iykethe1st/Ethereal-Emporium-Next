@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Head from "next/head";
 import Image from "next/image";
-import Navbar from "../components/navbar";
+import Navbar from "@/components/navbar";
 import SearchBarSm from "@/components/common/searchBarSm";
 import Hero from "@/components/hero";
 import HiddenJems from "@/components/hiddenGems";
@@ -32,13 +32,14 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className="sm:block text-gray-300 flex flex-col">
+      <main className="relative sm:block text-gray-300 flex flex-col">
         <Navbar setScreen={isSmallScreen} />
         {isSmallScreen && (
-          <div className="mx-auto py-2">
+          <div className="absolute flex flex-col items-center z-20 w-full h-full py-2 top-[0.7rem]">
             <SearchBarSm label="Search items, collections, accounts" />
           </div>
         )}
+
         <Hero />
         <HiddenJems />
       </main>
