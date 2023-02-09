@@ -40,7 +40,10 @@ const Info = () => {
       </div>
       <div className="grid grid-cols-1 md:flex gap-12 md:justify-between justify-items-center">
         {info.map((item) => (
-          <div className="grid grid-cols-1 gap-2 md:items-center justify-items-center w-[14rem]">
+          <div
+            key={item.id}
+            className="grid grid-cols-1 gap-2 md:items-center justify-items-center w-[14rem]"
+          >
             <img src={item.icon} alt={item.header} />
             <h1 className="font-bold">{item.header}</h1>
             <span className="text-sm tracking-tight">{item.content}</span>

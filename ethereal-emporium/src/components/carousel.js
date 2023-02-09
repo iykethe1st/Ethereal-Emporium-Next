@@ -50,7 +50,7 @@ export const Carousel = ({ nftItem }) => {
     <div className="grid grid-cols-1 pb-4">
       <Slider {...settings}>
         {nftItem.map((x) => (
-          <div className="">
+          <div key={x.id} className="">
             <CardBg item={x} />
           </div>
         ))}
@@ -105,7 +105,7 @@ export const CarouselSm = ({ nftItem }) => {
     <div className="grid grid-cols-1 pb-4">
       <Slider {...settings}>
         {nftItem.map((x) => (
-          <div className="">
+          <div key={x.id} className="">
             <CardSm item={x} />
           </div>
         ))}
