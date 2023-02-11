@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Joi from "joi-browser";
+import * as userService from "../services/userService";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
@@ -9,6 +10,7 @@ const SignUp = () => {
   const [user, setUser] = useState({});
 
   const schema = {
+    name: Joi.string().min(2).required(),
     email: Joi.string().email().min(5).required().label("email"),
     password: Joi.string().min(6).required().label("password"),
     repeat_password: Joi.ref("password"),
@@ -48,12 +50,13 @@ const SignUp = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     const errors = validate();
     setErrors({ errors: errors || {} });
     if (errors) return;
-    console.log("submitted");
+
+    const response = await userService.register(user);
   };
 
   return (
@@ -66,6 +69,14 @@ const SignUp = () => {
           onSubmit={handleSubmit}
           className="flex flex-col items-center justify-center gap-4"
         >
+          <Input
+            type="text"
+            placeholder="Name"
+            name="name"
+            onChange={handleChange}
+            errors={errors.name}
+          />
+
           <Input
             type="email"
             placeholder="Email Address"
