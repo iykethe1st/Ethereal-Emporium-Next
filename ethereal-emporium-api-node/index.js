@@ -19,3 +19,4 @@ app.use("/api/auth", auth);
 app.listen(port, () => console.log(`Listening on port ${port}...`));
 
 // export Ethereal_Emporium_Privatekey=mySecureKey
+// export Ethereal_Emporium_Cluster=mongodb+srv://admin:admin@cluster0.amghmo9.mongodb.net/?retryWrites=true&w=majority
