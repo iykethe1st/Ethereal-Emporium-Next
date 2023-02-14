@@ -1,14 +1,20 @@
 import { useState } from "react";
+import { useRouter } from "next/router";
 import Joi from "joi-browser";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
+import auth from "@/services/authService";
 
-const SignUp = () => {
+const SignIn = () => {
   const [errors, setErrors] = useState({});
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
+  const location = useRouter();
 
   const schema = {
+    name: Joi.string().min(2).required().label("name"),
     email: Joi.string().email().min(5).required().label("email"),
     password: Joi.string().min(6).required().label("password"),
     repeat_password: Joi.ref("password"),
@@ -48,12 +54,21 @@ const SignUp = () => {
     return errors;
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = validate();
-    setErrors({ errors: errors || {} });
-    if (errors) return;
-    console.log("submitted");
+
+    try {
+      const data = user;
+      const { data: jwt } = await auth.login(data.email, data.password);
+      localStorage.setItem("token", jwt);
+      location.push("/");
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const error = { ...errors };
+        error.email = ex.response.data;
+        setErrors(error);
+      }
+    }
   };
 
   return (
@@ -78,20 +93,18 @@ const SignUp = () => {
             placeholder="Password"
             name="password"
             onChange={handleChange}
-            errors={errors.password}
           />
-          {errors && (
-            <div className="ml-2 md:w-[17rem] w-11/12 text-start text-[0.7rem] md:text-[0.8rem] text-red-600">
-              {errors.email}
-            </div>
-          )}
 
-          <ButtonLightLg label="Sign Up" />
+          <div className="ml-2 md:w-[17rem] w-11/12 text-start text-[0.7rem] md:text-[0.8rem] text-red-600">
+            Holy Fuck
+          </div>
+
+          <ButtonLightLg label="Log In" />
           <span className="text-[0.8rem]">
             Don't have an account?{" "}
             <Link
               className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-500"
-              href="/login"
+              href="/sign-up"
             >
               Sign up here
             </Link>
@@ -102,4 +115,4 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+export default SignIn;

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import Joi from "joi-browser";
-import * as userService from "../services/userService";
+import * as userService from "@/services/userService";
+import auth from "@/services/authService";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
@@ -10,7 +11,7 @@ const SignUp = () => {
   const [user, setUser] = useState({});
 
   const schema = {
-    name: Joi.string().min(2).required(),
+    name: Joi.string().min(2).required().label("name"),
     email: Joi.string().email().min(5).required().label("email"),
     password: Joi.string().min(6).required().label("password"),
     repeat_password: Joi.ref("password"),
@@ -52,11 +53,21 @@ const SignUp = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const errors = validate();
-    setErrors({ errors: errors || {} });
-    if (errors) return;
+    // const errors = validate();
+    // setErrors({ errors: errors || {} });
+    // if (errors) return;
 
-    const response = await userService.register(user);
+    try {
+      const response = await userService.register(user);
+      auth.loginWithJwt(response.headers["x-auth-token"]);
+      window.location = "/";
+    } catch (ex) {
+      if (ex.response && ex.response.status === 400) {
+        const error = { ...errors };
+        error.email = ex.response.data;
+        setErrors(error);
+      }
+    }
   };
 
   return (
@@ -97,7 +108,7 @@ const SignUp = () => {
             Already have an account?{" "}
             <Link
               className="bg-clip-text text-transparent bg-gradient-to-r from-yellow-500 to-red-500"
-              href="/login"
+              href="/sign-in"
             >
               Sign in here
             </Link>
