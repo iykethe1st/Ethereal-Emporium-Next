@@ -4,9 +4,10 @@ const mongoose = require("mongoose");
 const users = require("./routes/users");
 const auth = require("./routes/auth");
 const port = 3500;
+const config = require("config");
 
 mongoose
-  .connect("mongodb://localhost/ethereal-emporium")
+  .connect(config.get("db"))
   .then(() => console.log("Connected to MongoB..."))
   .catch((err) => console.error("Could not connect to MongoDB...", err));
 
