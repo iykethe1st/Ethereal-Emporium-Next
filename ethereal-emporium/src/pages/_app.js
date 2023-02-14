@@ -1,4 +1,5 @@
 import "@/styles/globals.css";
+import "animate.css";
 import auth from "@/services/authService";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";

@@ -2,6 +2,8 @@ import HeroIcon from "../../public/hero-icon.png";
 import Image from "next/image";
 import ButtonDarkLg from "./common/buttonDarkLg";
 import ButtonLightLg from "./common/buttonLightLg";
+import useWindowWidth from "./common/windowWidth";
+
 import Link from "next/link";
 import Title from "./common/title";
 
@@ -15,10 +17,11 @@ const Hero = () => {
         <Image width="850" height="850" src="/hero-icon.png" alt="hero" />
       </div>
 
-      <div className="absolute z-5 top-[8rem] md:top-[15rem] flex flex-col items-center lg:items-start gap-4">
-        <span className="text-slate-400 text-sm">
-          Exclusive NFT for Digital and Real-world Assets
+      <div className="absolute z-5 top-[8rem] md:top-[15rem] flex flex-col items-center lg:items-start gap-4 animate__animated animate__swing">
+        <span className="text-slate-400 text-sm lg:whitespace-nowrap lg:overflow-hidden lg:animate-typing">
+          Exclusive NFTs for Digital and Real-world Assets...
         </span>
+
         <Title label="This is my demo website, you can only create an account, login, or connect your testnet wallet and mint an NFT." />
         <div className="flex gap-4 md:gap-12">
           <ButtonLightLg label="Explore" />

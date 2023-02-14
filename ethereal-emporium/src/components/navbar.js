@@ -6,8 +6,9 @@ import { TiThMenu } from "react-icons/ti";
 import { BiWalletAlt } from "react-icons/bi";
 import ButtonDark from "./common/buttonDark";
 import ButtonLight from "./common/buttonLight";
+import { CiUser } from "react-icons/ci";
 
-const Navbar = ({}) => {
+const Navbar = ({ user }) => {
   const [isSmallScreen, setIsSmallScreen] = useState(false);
 
   useEffect(() => {
@@ -36,23 +37,21 @@ const Navbar = ({}) => {
       item: "Activity",
       link: "/activity",
     },
-    {
-      id: 2,
-      item: "Resources",
-      link: "/resources",
-    },
   ];
   const [open, setOpen] = useState(false);
 
   return (
     <nav className="text-white absolute z-20 bg-black bg-opacity-30 flex-wrap w-full flex items-center tracking-tight justify-between py-4 transform transition duration-500 ease-in-out">
-      <Image
-        className="ml-4 md:ml-8 lg:ml-20"
-        src="/logo.png"
-        alt="logo"
-        width="30"
-        height="30"
-      ></Image>
+      <a href="/">
+        {" "}
+        <Image
+          className="ml-4 md:ml-8 lg:ml-20"
+          src="/logo.png"
+          alt="logo"
+          width="30"
+          height="30"
+        ></Image>
+      </a>
 
       {!isSmallScreen && (
         <div className="">
@@ -88,9 +87,112 @@ const Navbar = ({}) => {
               </Link>
             </li>
           ))}
-          <li className="py-1 lg:py-0">
-            <ButtonLight label="Account" />
-          </li>
+          {!user && (
+            <li className="py-1 lg:py-0">
+              <div
+                className="group relative inline-block text-left"
+                tabindex="-1 bg-gradient-to-r hover:from-green-800 hover:to-slate-600 active:from-green-900 active:to-slate-700"
+              >
+                <span className="rounded-md shadow-sm">
+                  <button
+                    className="active:shadow-outline-blue inline-flex w-full justify-center rounded-md border border-gray-300   px-4 py-2 text-sm font-medium leading-5  focus-within:border-transparent focus-within:outline focus-within:outline-2 focus-within:outline-blue-500 hover:text-gray-400 active:bg-gray-50 active:text-gray-800"
+                    type="button"
+                    aria-haspopup="true"
+                  >
+                    <span>Account</span>
+
+                    <svg
+                      className="ml-2 -mr-1 h-5 w-5"
+                      viewBox="0 0 20 20"
+                      fill="currentColor"
+                    >
+                      <path
+                        fillRule="evenodd"
+                        d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                        clipRule="evenodd"
+                      ></path>
+                    </svg>
+                  </button>
+                </span>
+                <div className="invisible origin-top-right -translate-y-2 scale-95 transform opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100">
+                  <div
+                    className="absolute right-0 ml-8 mt-2 w-28 origin-top-right divide-y divide-gray-100 rounded-md border border-gray-200 bg-white shadow-lg outline-none"
+                    role="menu"
+                  >
+                    <div className="py-1">
+                      <a
+                        href="/sign-in"
+                        className="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
+                        role="menuitem"
+                      >
+                        Log In
+                      </a>
+                    </div>
+                    <div className="py-1">
+                      <a
+                        href="/sign-up"
+                        className="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
+                        role="menuitem"
+                      >
+                        Sign Up
+                      </a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </li>
+          )}
+          {user && (
+            <div
+              className="group relative inline-block text-left"
+              tabindex="-1"
+            >
+              <span className="rounded-md shadow-sm">
+                <button
+                  className="active:shadow-outline-blue inline-flex w-full justify-center rounded-md border border-gray-300  px-4 py-2 text-sm font-medium leading-5 focus-within:border-transparent focus-within:outline focus-within:outline-2 focus-within:outline-blue-500 hover:text-gray-500 active:bg-gray-50 active:text-gray-800"
+                  type="button"
+                  aria-haspopup="true"
+                >
+                  <CiUser className="w-5 h-5 hover:text-slate-300 active:text-slate-400" />
+
+                  <svg
+                    className="ml-2 -mr-1 h-5 w-5"
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    ></path>
+                  </svg>
+                </button>
+              </span>
+              <div className="invisible origin-top-right -translate-y-2 scale-95 transform opacity-0 transition-all duration-300 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:scale-100 group-focus-within:opacity-100">
+                <div
+                  className="absolute left-0 mt-2 w-38 origin-top-right divide-y divide-gray-100 rounded-md border border-gray-200 bg-white shadow-lg outline-none"
+                  role="menu"
+                >
+                  <div className="px-4 py-3">
+                    <p className="text-sm leading-5">Signed in as</p>
+                    <p className="truncate text-sm font-medium leading-5 text-gray-900">
+                      {user.email}
+                    </p>
+                  </div>
+
+                  <div className="py-1">
+                    <a
+                      href="/logout"
+                      className="flex w-full justify-between px-4 py-2 text-left text-sm leading-5 text-gray-700 focus-visible:outline-1 focus-visible:outline-blue-500"
+                      role="menuitem"
+                    >
+                      Sign out
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
           <li className="pt-2 lg:pt-0">
             <ButtonDark icon={<BiWalletAlt />} label="Connect Wallet" />
           </li>

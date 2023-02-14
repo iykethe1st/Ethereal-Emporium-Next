@@ -61,7 +61,7 @@ const SignIn = () => {
       const data = user;
       const { data: jwt } = await auth.login(data.email, data.password);
       localStorage.setItem("token", jwt);
-      location.push("/");
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };
@@ -94,10 +94,6 @@ const SignIn = () => {
             name="password"
             onChange={handleChange}
           />
-
-          <div className="ml-2 md:w-[17rem] w-11/12 text-start text-[0.7rem] md:text-[0.8rem] text-red-600">
-            Holy Fuck
-          </div>
 
           <ButtonLightLg label="Log In" />
           <span className="text-[0.8rem]">
