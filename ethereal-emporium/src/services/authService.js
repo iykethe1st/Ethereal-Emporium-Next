@@ -37,7 +37,7 @@ export function getJwt() {
 export default {
   login,
   logout,
-  loginWithJwt,
+  // loginWithJwt,
   getCurrentUser,
   getJwt,
 };

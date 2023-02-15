@@ -60,8 +60,9 @@ const SignUp = () => {
 
     try {
       const response = await userService.register(user);
-      localStorage.setItem("token", response.headers["x-auth-token"]);
-      window.location = "/";
+      console.log(response);
+      // localStorage.setItem("token", response.headers["x-auth-token"]);
+      // window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };
