@@ -59,7 +59,7 @@ const SignIn = () => {
       const data = user;
       const { data: jwt } = await auth.login(data.email, data.password);
       localStorage.setItem("token", jwt);
-      location.push("/");
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };

@@ -62,7 +62,7 @@ const SignUp = () => {
     try {
       const response = await userService.register(user);
       auth.loginWithJwt(response.headers["x-auth-token"]);
-      location.push("/");
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };
