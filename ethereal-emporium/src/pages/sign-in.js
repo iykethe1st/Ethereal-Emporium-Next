@@ -8,8 +8,6 @@ import auth from "@/services/authService";
 
 const SignIn = () => {
   const [errors, setErrors] = useState({});
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
   const [user, setUser] = useState({});
   const location = useRouter();
 
@@ -61,7 +59,7 @@ const SignIn = () => {
       const data = user;
       const { data: jwt } = await auth.login(data.email, data.password);
       localStorage.setItem("token", jwt);
-      window.location = "/";
+      location.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };

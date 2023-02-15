@@ -1,15 +1,17 @@
 import { useState } from "react";
-import { useLocation } from "next";
+import { useRouter } from "next/router";
 import Joi from "joi-browser";
 import * as userService from "@/services/userService";
 import auth from "@/services/authService";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
+import { useRouter } from "next/router";
 
 const SignUp = () => {
   const [errors, setErrors] = useState({});
   const [user, setUser] = useState({});
+  const location = useRouter();
 
   const schema = {
     name: Joi.string().min(2).required().label("name"),
@@ -61,7 +63,7 @@ const SignUp = () => {
     try {
       const response = await userService.register(user);
       auth.loginWithJwt(response.headers["x-auth-token"]);
-      window.location = "/";
+      location.push("/");
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };
