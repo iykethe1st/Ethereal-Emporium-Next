@@ -8,7 +8,7 @@ module.exports = {
     return [
       {
         source: "/api/:path*",
-        destination: "https://api.example.com/:path*",
+        destination: "https://ethereal-emporium-api.vercel.app/:path*",
       },
     ];
   },
