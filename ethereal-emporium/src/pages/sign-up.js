@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Joi from "joi-browser";
 import * as userService from "@/services/userService";
+import auth from "@/services/authService";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
@@ -60,9 +61,8 @@ const SignUp = () => {
 
     try {
       const response = await userService.register(user);
-      console.log(response);
-      // localStorage.setItem("token", response.headers["x-auth-token"]);
-      // window.location = "/";
+      auth.loginWithJwt(response.headers["x-auth-token"]);
+      window.location = "/";
     } catch (ex) {
       if (ex.response && ex.response.status === 400) {
         const error = { ...errors };

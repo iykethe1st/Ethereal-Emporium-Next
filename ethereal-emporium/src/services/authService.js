@@ -12,9 +12,9 @@ export async function login(email, password) {
   });
 }
 
-// export function loginWithJwt(jwt) {
-//
-// }
+export function loginWithJwt(jwt) {
+  localStorage.setItem(tokenKey, jwt);
+}
 
 export function logout() {
   if (localStorage.getItem(tokenKey)) {
@@ -37,7 +37,7 @@ export function getJwt() {
 export default {
   login,
   logout,
-  // loginWithJwt,
+  loginWithJwt,
   getCurrentUser,
   getJwt,
 };
