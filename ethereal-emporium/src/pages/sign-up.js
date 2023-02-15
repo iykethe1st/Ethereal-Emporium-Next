@@ -6,7 +6,6 @@ import auth from "@/services/authService";
 import Link from "next/link";
 import ButtonLightLg from "@/components/common/buttonLightLg";
 import Input from "@/components/common/input";
-import { useRouter } from "next/router";
 
 const SignUp = () => {
   const [errors, setErrors] = useState({});
